@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
- 
+  before_action :auth_params, only: %i[login]
 
   def index
     # @tweets = Tweet.all
@@ -7,12 +7,18 @@ class TweetsController < ApplicationController
 
 
   def login
-    @response = request.env['omniauth.auth']
-    # session is a key word in ruby
-    session[:username] = @response[:info][:nickname]
-    session[:token] = @response[:credentials][:token]
-    session[:token_secret] = @response[:credentials][:secret]
-
+    
     redirect_to "/"
   end
+
+
+  private
+
+    def auth_params
+      # session is a key word in ruby
+      @response = request.env['omniauth.auth']
+      session[:username] = @response[:info][:nickname]
+      session[:token] = @response[:credentials][:token]
+      session[:token_secret] = @response[:credentials][:secret]
+    end  
 end
