@@ -2,8 +2,18 @@
 
 <% if session[:token].present? %>
 <p>
-  <%= session[:username] %>
+  @<%= session[:username] %>
 </p>
+
+
+<% @tweets.each do |tweet| %>
+<div>
+
+  <h2><%= tweet.text %></h2>
+  <p><%= tweet.user.name %> @<%=tweet.user.screen_name %></p>
+
+</div>
+<% end %>
 <% else %>
 <p>
   <a href="/auth/twitter">Log in with Twitter</a>

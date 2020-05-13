@@ -21,3 +21,32 @@ You need to access it via this command:
     http://localhost:3000/auth/twitter/callback
 
 - These need to be added to the twitter dev app page
+
+## printing out tweets
+
+use `tweet.to_json` to see the values we can pull out
+
+```ruby
+<% @tweets.each do |tweet| %>
+<div>
+  <h2><%= tweet[:text] %></h2>
+  <p><%= tweet[:user][:name] %></p>
+  <p>@<%=tweet[:user][:screen_name] %></p>
+</div>
+<% end %>
+```
+
+- Had a lot of warning of deprecation so changed above to:
+
+```ruby
+  <h2><%= tweet::text %></h2>
+  <p><%= tweet::user::name %></p>
+  <p>@<%=tweet::user::screen_name %></p>
+```
+
+However this gem allows for it to be written with just `.`
+
+```ruby
+<h2><%= tweet.text %></h2>
+  <p><%= tweet.user.name %> @<%=tweet.user.screen_name %></p>
+```
