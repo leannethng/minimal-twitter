@@ -1,34 +1,36 @@
-<h1> Minimal Twitter </h1>
-
 <% if session[:token].present? %>
-<p>
-  @<%= session[:username] %>
-  <a href="/logout">Log out</a>
-</p>
-
-<%
-=begin%>
-<%= @tweets.to_json %>
-<%
-=end%>
-<% @tweets.each do |tweet| %>
-<div>
-
-  <h2><%= auto_link(tweet.text).html_safe %></h2>
-
-  <div>
-    <img src="<%= tweet.user.profile_image_uri_https %>" alt="profile image">
-    <%= tweet.user.name %>
-    <a href="<%= tweet.user.url %>">@<%= auto_link(tweet.user.screen_name).html_safe %></a>
-    <p> <%= tweet.retweet_count %></p>
+<header>
+  <div class="container">
+    <h1> Minimal Twitter </h1>
+    <p>
+      @<%= session[:username] %>
+      <a href="/logout">Log out</a>
+    </p>
   </div>
+</header>
 
 
-
+<% @tweets.each do |tweet| %>
+<div class="container">
+  <div class="tweet">
+    <img src="<%= tweet.user.profile_image_uri_https %>" alt="profile image">
+    <div class="tweet-info">
+      <a class="username-link" href="<%= tweet.user.url %>"><%= tweet.user.name %></a>
+      @<%= auto_link(tweet.user.screen_name).html_safe %>
+      <h2><%= auto_link(tweet.text).html_safe %></h2>
+      <p> Retweets: <%= tweet.retweet_count %></p>
+    </div>
+  </div>
 </div>
 <% end %>
+
 <% else %>
-<p>
-  <a href="/auth/twitter">Log in with Twitter</a>
-</p>
+<header>
+  <div class="container">
+    <h1> Minimal Twitter </h1>
+    <p>
+      <a href="/auth/twitter">Log in with Twitter</a>
+    </p>
+  </div>
+</header>
 <% end %>
