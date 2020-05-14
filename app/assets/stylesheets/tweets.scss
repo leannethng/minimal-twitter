@@ -37,25 +37,21 @@ a {
 
 header {
   padding: 8px 0;
-}
-header div.container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .tweet {
   display: flex;
   justify-content: flex-start;
   align-items: start;
-}
-
-.tweet {
   margin: 40px 0 40px 0;
-}
-
-.tweet img {
-  border-radius: 50px;
-  margin-right: 1em;
-  height: 49px;
+  img {
+    border-radius: 50px;
+    margin-right: 1em;
+    height: 49px;
+  }
 }
