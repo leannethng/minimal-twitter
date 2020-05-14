@@ -5,12 +5,17 @@
   @<%= session[:username] %>
 </p>
 
-
+<%
+=begin%>
+<%= @tweets.to_json %>
+<%
+=end%>
 <% @tweets.each do |tweet| %>
 <div>
 
   <h2><%= auto_link(tweet.text).html_safe %></h2>
-  <p><%= tweet.user.name %> @<%= auto_link(tweet.user.screen_name).html_safe %></p>
+  <p><%= tweet.user.name %> <a href="<%= tweet.user.url %>">@<%= auto_link(tweet.user.screen_name).html_safe %></a> </p>
+
 
 
 </div>
