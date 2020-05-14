@@ -21,6 +21,11 @@ class TweetsController < ApplicationController
     redirect_to "/"
   end
 
+  def logout
+    reset_session
+    redirect_to "/"
+  end  
+
 
   protected
 

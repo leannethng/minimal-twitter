@@ -3,6 +3,7 @@
 <% if session[:token].present? %>
 <p>
   @<%= session[:username] %>
+  <a href="/logout">Log out</a>
 </p>
 
 <%
@@ -14,7 +15,13 @@
 <div>
 
   <h2><%= auto_link(tweet.text).html_safe %></h2>
-  <p><%= tweet.user.name %> <a href="<%= tweet.user.url %>">@<%= auto_link(tweet.user.screen_name).html_safe %></a> </p>
+
+  <div>
+    <img src="<%= tweet.user.profile_image_uri_https %>" alt="profile image">
+    <%= tweet.user.name %>
+    <a href="<%= tweet.user.url %>">@<%= auto_link(tweet.user.screen_name).html_safe %></a>
+    <p> <%= tweet.retweet_count %></p>
+  </div>
 
 
 
