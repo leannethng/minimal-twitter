@@ -9,8 +9,9 @@
 <% @tweets.each do |tweet| %>
 <div>
 
-  <h2><%= tweet.text %></h2>
-  <p><%= tweet.user.name %> @<%=tweet.user.screen_name %></p>
+  <h2><%= auto_link(tweet.text).html_safe %></h2>
+  <p><%= tweet.user.name %> @<%= auto_link(tweet.user.screen_name).html_safe %></p>
+
 
 </div>
 <% end %>

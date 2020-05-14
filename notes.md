@@ -50,3 +50,26 @@ However this gem allows for it to be written with just `.`
 <h2><%= tweet.text %></h2>
   <p><%= tweet.user.name %> @<%=tweet.user.screen_name %></p>
 ```
+
+## Twitter text formatting
+
+https://blog.twitter.com/engineering/en_us/a/2010/introducing-the-open-source-twitter-text-libraries.html
+
+https://github.com/twitter/twitter-text/tree/master/rb
+
+- Needed to install `brew install libidn` first then the `gem twitter-text`
+
+- For Ruby on Rails you want to add this to app/helpers/application_helper.rb
+
+```ruby
+module ApplicationHelper
+  include Twitter::TwitterText::Autolink
+end
+```
+
+- in the index file `html_safe` is used when you know the html is not malicious and removes the a tags
+
+```ruby
+<h2><%= auto_link(tweet.text).html_safe %></h2>
+
+```
