@@ -79,3 +79,7 @@ end
 https://stackoverflow.com/questions/13712012/error-pushing-to-heroku-aborting-my-rake-assetsprecompile
 
 I think what happened was I needed to add my master key into heroku.
+
+# Security
+
+- added `config.force_ssl = true` to the config>application.rb
