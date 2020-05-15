@@ -11,9 +11,10 @@
 
 
 <% @tweets.each do |tweet| %>
+
 <div class="container">
   <div class="tweet">
-    <img src="<%= tweet.user.profile_image_uri_https %>" alt="profile image">
+    <img src="<%= tweet.user.profile_image_url_https %>" alt="profile image">
     <div class="tweet-info">
       <a class="username-link" href="<%= tweet.user.url %>"><%= tweet.user.name %></a>
       @<%= auto_link(tweet.user.screen_name).html_safe %>
