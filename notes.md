@@ -73,3 +73,9 @@ end
 <h2><%= auto_link(tweet.text).html_safe %></h2>
 
 ```
+
+# Issues pushing to heroku
+
+https://stackoverflow.com/questions/13712012/error-pushing-to-heroku-aborting-my-rake-assetsprecompile
+
+I think what happened was I needed to add my master key into heroku.
