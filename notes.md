@@ -1,3 +1,11 @@
+---
+layout: post
+title:
+date: 2020-05-15 12:32:43 -7000
+tags:
+categories:
+---
+
 # Minimal Twitter
 
 Adding in secret key handling, as of rails 5.2, we now need to use the credentials.yml file
